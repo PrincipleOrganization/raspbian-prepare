@@ -1,19 +1,18 @@
 #!/bin/bash
 
 echo 'Update & upgrade system...'
-sudo su
-apt-get update & apt-get upgrade -y
-apt-get install curl
+sudo apt-get update & sudo apt-get upgrade -y
+sudo apt-get install curl
 
 echo 'Init Docker repo...'
-apt-get install apt-transport-https ca-certificates software-properties-common
+sudo apt-get install apt-transport-https ca-certificates software-properties-common
 
-curl -fsSL https://yum.dockerproject.org/gpg | apt-key add -
-add-apt-repository "deb https://apt.dockerproject.org/repo/ debian-$(lsb_release -cs) main"
+curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
+sudo add-apt-repository "deb https://apt.dockerproject.org/repo/ debian-$(lsb_release -cs) main"
 
 echo 'Install Docker...'
-apt-get update
-apt-get -y install docker-engine
+sudo apt-get update
+sudo apt-get -y install docker-engine
 
 echo 'Prepare env for containers...'
 mkdir /home/pi/atomdata
