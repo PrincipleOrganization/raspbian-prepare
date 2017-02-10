@@ -1,28 +1,28 @@
 #!/bin/bash
 
 echo 'Update & upgrade system...'
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install curl -y
+apt-get update && apt-get upgrade -y
+apt-get install curl -y
 
 echo 'Init Docker repo...'
-sudo apt-get install apt-transport-https ca-certificates
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-sudo touch /etc/apt/sources.list.d/docker.list
-sudo echo "deb https://apt.dockerproject.org/repo raspbian-jessie main" > /etc/apt/sources.list.d/docker.list
-sudo apt-get update
-sudo apt-cache policy docker-engine
+apt-get install apt-transport-https ca-certificates
+apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+touch /etc/apt/sources.list.d/docker.list
+echo "deb https://apt.dockerproject.org/repo raspbian-jessie main" > /etc/apt/sources.list.d/docker.list
+apt-get update
+apt-cache policy docker-engine
 
 echo 'Install Docker...'
-sudo apt-get update
-sudo apt-get -y install docker-engine
+apt-get update
+apt-get -y install docker-engine
 
 echo 'Run Docker service...'
-sudo service docker start
+service docker start
 
 echo 'Setup Docker...'
-sudo groupadd docker
-sudo gpasswd -a ${USER} docker
-sudo service docker restart
+groupadd docker
+gpasswd -a ${USER} docker
+service docker restart
 
 echo 'Prepare env for containers...'
 mkdir /home/pi/atomdata
