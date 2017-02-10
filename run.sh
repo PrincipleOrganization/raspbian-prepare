@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Update & upgrade system...'
-sudo apt-get update & sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install curl -y
 
 echo 'Init Docker repo...'
