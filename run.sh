@@ -4,20 +4,8 @@ echo 'Update & upgrade system...'
 apt-get update && apt-get upgrade -y
 apt-get install curl -y
 
-echo 'Init Docker repo...'
-apt-get install apt-transport-https ca-certificates
-apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-touch /etc/apt/sources.list.d/docker.list
-echo "deb https://apt.dockerproject.org/repo raspbian-jessie main" > /etc/apt/sources.list.d/docker.list
-apt-get update
-apt-cache policy docker-engine
-
 echo 'Install Docker...'
-apt-get update
-apt-get -y install docker-engine
-
-echo 'Run Docker service...'
-service docker start
+curl -sSL https://get.docker.com | sh
 
 echo 'Setup Docker...'
 groupadd docker
