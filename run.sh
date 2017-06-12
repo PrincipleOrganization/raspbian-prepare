@@ -5,7 +5,7 @@ apt-get update && apt-get upgrade -y
 apt-get install curl -y
 
 echo 'Install Docker...'
-apt-get install docker -y
+curl -sSL get.docker.com | sh
 
 echo 'Prepare env for containers...'
 mkdir /home/pi/atomdata
