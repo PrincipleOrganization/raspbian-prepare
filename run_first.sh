@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo 'Update & upgrade system...'
-apt-get update && apt-get upgrade -y
+apt-get update
 apt-get install curl -y
 
 echo 'Install Docker...'
